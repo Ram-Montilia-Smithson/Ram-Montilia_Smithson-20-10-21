@@ -1,0 +1,19 @@
+#home {
+    border: solid black 5px;
+}
+
+#search-group{
+    min-width: 70%;
+}
+
+#search {
+    font-size: xxx-large;
+}
+
+#search-input{
+    width: 70%;
+}
+
+#content{
+    border: solid red 3px;
+}
