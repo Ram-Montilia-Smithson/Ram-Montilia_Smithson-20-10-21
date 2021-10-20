@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "sources": [
+        "webpack://src/index.css",
+        "webpack://src/components/App/App.css",
+        "webpack://src/components/pages/Home/Home.css"
+    ],
+    "names": [],
+    "mappings": "AAAA,KACE,QAAS,CACT,mJAEY,CACZ,kCAAmC,CACnC,iCACF,CAEA,KACE,yEAEF,CCZA,KACE,iBAAkB,CAClB,gBACF,CAEA,YACE,YAAa,CACb,kBAAmB,CACnB,kBAAmB,CACnB,6BAA8B,CAC9B,4BACF,CCXA,MACI,qBACJ,CAEA,cACI,aACJ,CAEA,QACI,mBACJ,CAEA,cACI,SACJ,CAEA,SACI,oBACJ",
+    "file": "main.fdfb1536.chunk.css",
+    "sourcesContent": [
+        "body {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n",
+        ".App {\n  text-align: center;\n  min-height: 100vh;\n}\n\n.App-header {\n  display: flex;\n  flex-direction: row;\n  align-items:initial;\n  justify-content:space-between ;\n  font-size: calc(10px + 2vmin);\n}",
+        "#home {\r\n    border: solid black 5px;\r\n}\r\n\r\n#search-group{\r\n    min-width: 70%;\r\n}\r\n\r\n#search {\r\n    font-size: xxx-large;\r\n}\r\n\r\n#search-input{\r\n    width: 70%;\r\n}\r\n\r\n#content{\r\n    border: solid red 3px;\r\n}\r\n"
+    ]
+}
