@@ -1,8 +1,8 @@
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from 'components/pages/Home/Home';
-import Favorites from 'components/pages/Favorites/Favorites';
+import Home from '../pages/Home/Home';
+import Favorites from '../pages/Favorites/Favorites';
 
 
 function App() {
