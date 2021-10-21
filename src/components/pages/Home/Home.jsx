@@ -3,6 +3,7 @@ import "./Home.css"
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button';
+// import {heart} from ""
 
 
 function Home() {
@@ -19,19 +20,44 @@ function Home() {
                 <Button id="search-button">search</Button>
             </InputGroup>
             <div id="content">
-                <div id="today">
                     <div id="top">
-                        <span id="left">Tel Aviv</span>
-                        <Button id="right">Add To Favorites</Button>
+                        <div id="left">
+                            <img id="left-img" src="" alt="" width="100" height="100" />
+                            <div id="left-name">
+                                <h2>Tel Aviv</h2>
+                                <p>38<sup>o</sup>C</p>
+                            </div>
+                        </div>
+                        <div id="right">
+                            <img src="" alt="" width="50" height="50"/>
+                        {/* <img src="" alt=""  width="50" height="50"/> */}
+                            <Button>Add To Favorites</Button>
+                        </div>
                     </div>
-                    <div id="bottom">scattered clouds</div>
-                </div>
-                <div id="forecast">
-                    <span className="forecast-day">day +1</span>
-                    <span className="forecast-day">day +2</span>
-                    <span className="forecast-day">day +3</span>
-                    <span className="forecast-day">day +4</span>
-                    <span className="forecast-day">day +5</span>
+                <div id="bottom">
+                    <h2 id="headline">scattered clouds</h2>
+                    <div id="forecast">
+                        <span className="forecast-day">
+                            <h3>Sunday</h3>
+                                <p>38<sup>o</sup>C</p>
+                        </span>
+                        <span className="forecast-day">
+                            <h3>Monday</h3>
+                                <p>38<sup>o</sup>C</p>
+                        </span>
+                        <span className="forecast-day">
+                            <h3>Tuesday</h3>
+                                <p>38<sup>o</sup>C</p>
+                        </span>
+                        <span className="forecast-day">
+                            <h3>Wednesday</h3>
+                                <p>38<sup>o</sup>C</p>
+                        </span>
+                        <span className="forecast-day">
+                            <h3>Thursday</h3>
+                                <p>38<sup>o</sup>C</p>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

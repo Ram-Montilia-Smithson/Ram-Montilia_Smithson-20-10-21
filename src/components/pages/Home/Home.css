@@ -17,3 +17,34 @@
 #content{
     border: solid red 3px;
 }
+
+#top {
+    border: solid green 3px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px;
+}
+
+#left{
+    display: flex;
+    /* flex-direction: row; */
+}
+
+#right {
+    height: fit-content;
+}
+
+#bottom{
+    border: solid 3px purple;
+    margin: 20px 20px;
+}
+
+#forecast{
+    border: solid blue 3px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.forecast-day{
+    border: black solid 3px;
+}
