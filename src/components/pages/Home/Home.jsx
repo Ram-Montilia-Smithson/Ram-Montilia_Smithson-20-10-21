@@ -4,9 +4,11 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button';
 // import {heart} from ""
-
+import { useSelector } from 'react-redux';
 
 function Home() {
+
+    const degrees = useSelector(state => state.degrees)
 
     const success = (position) => {
         console.log(position.coords);
@@ -44,7 +46,7 @@ function Home() {
                             <img id="left-img" src="" alt="" width="100" height="100" />
                             <div id="left-name">
                                 <h2>Tel Aviv</h2>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>{degrees}</p>
                             </div>
                         </div>
                         <div id="right">
