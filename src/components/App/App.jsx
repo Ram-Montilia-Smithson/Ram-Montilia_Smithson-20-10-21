@@ -17,12 +17,8 @@ function App() {
               <Button>Dark/Light</Button>
             </span>
             <span id="links">
-              <Button>
-                <Link to="/">Home</Link>
-              </Button>
-              <Button>
-                <Link to="/favorites">Favorites</Link>
-            </Button>
+              <Link to="/"><Button>Home</Button></Link>
+              <Link to="/favorites"><Button>Favorites</Button></Link>
             </span>
         </div>
       </header>

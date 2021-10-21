@@ -2,17 +2,19 @@
     border: solid black 5px;
 }
 
+#search{
+    display: flex;
+    justify-content: space-between;
+}
+
 #search-group{
-    min-width: 70%;
-    margin: 20px;
+    width: 80%;
+    margin: 20px auto;
 }
 
-#search {
-    font-size: xxx-large;
-}
-
-#search-input{
-    width: 70%;
+#current-position-button{
+    height: fit-content;
+    align-self: center;
 }
 
 #content{

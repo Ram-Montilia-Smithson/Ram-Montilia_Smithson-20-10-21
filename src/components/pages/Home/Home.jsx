@@ -7,20 +7,37 @@ import Button from 'react-bootstrap/Button';
 
 
 function Home() {
+
+    const success = (position) => {
+        console.log(position.coords);
+        // insert call to accuweather with coords.latitude,coords.longitude
+    }
+
+    const error = (error) => {
+        console.error(error);
+        // handle error using modal
+    }
+
+    const getCurrentLocation = () => {
+        navigator.geolocation.getCurrentPosition(success, error)
+    }
+
     return (
         <div id="home">
-            <InputGroup id="search-group">
-                <InputGroup.Text>&#128269;</InputGroup.Text>
-                <FormControl
-                    as="input"
-                    id="search-input"
-                    placeholder="search..."
-                    aria-label="search"
-                    aria-describedby="search"
-                    
-                />
-                <Button id="search-button" variant="outline-secondary">search</Button>
-            </InputGroup>
+            <div id="search">
+                <InputGroup id="search-group">
+                    <InputGroup.Text>&#128269;</InputGroup.Text>
+                    <FormControl
+                        as="input"
+                        id="search-input"
+                        placeholder="search..."
+                        aria-label="search"
+                        aria-describedby="search"
+                        />
+                    <Button  id="search-button" size="lg" variant="outline-secondary">search</Button>
+                </InputGroup>
+                <Button id="current-position-button" onClick={() => getCurrentLocation()} size="lg" variant="info">Search&nbsp;Current&nbsp;Position</Button>
+            </div>
             <div id="content">
                     <div id="top">
                         <div id="left">
