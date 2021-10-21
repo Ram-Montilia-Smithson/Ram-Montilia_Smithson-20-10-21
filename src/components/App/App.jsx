@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pages/Home/Home';
 // import Favorites from '../pages/Favorites/Favorites';
+import Test from '../test';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
           <Switch>
           <Route path="/favorites">
             {/* <Favorites /> */}
-            <h1>Favorites</h1>
+            {/* <h1>Favorites</h1> */}
+            <Test/>
           </Route>
             <Route path="/"><Home/></Route>
           </Switch>
