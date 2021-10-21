@@ -11,3 +11,13 @@
   margin: 10px 10px;
   font-size: calc(10px + 2vmin);
 }
+
+#buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+Button{
+  margin: 5px 10px;
+}

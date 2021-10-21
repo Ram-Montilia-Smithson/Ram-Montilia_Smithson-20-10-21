@@ -2,8 +2,7 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pages/Home/Home';
-// import Favorites from '../pages/Favorites/Favorites';
-import Test from '../test';
+import Favorites from '../pages/Favorites/Favorites';
 
 
 function App() {
@@ -12,20 +11,25 @@ function App() {
       <Router>
       <header className="App-header">
         <h1>Herolo Weather Task</h1>
-        <div id="buttons">
+          <div id="buttons">
+            <span id="toggles">
+              <Button>Celsius/Fahrenheit</Button>
+              <Button>Dark/Light</Button>
+            </span>
+            <span id="links">
               <Button>
                 <Link to="/">Home</Link>
               </Button>
               <Button>
                 <Link to="/favorites">Favorites</Link>
-              </Button>
+            </Button>
+            </span>
         </div>
       </header>
           <Switch>
           <Route path="/favorites">
-            {/* <Favorites /> */}
+            <Favorites />
             {/* <h1>Favorites</h1> */}
-            <Test/>
           </Route>
             <Route path="/"><Home/></Route>
           </Switch>

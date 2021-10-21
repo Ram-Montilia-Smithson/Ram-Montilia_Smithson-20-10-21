@@ -4,6 +4,7 @@
 
 #search-group{
     min-width: 70%;
+    margin: 20px;
 }
 
 #search {
@@ -16,13 +17,14 @@
 
 #content{
     border: solid red 3px;
+    margin: 10px 30px;
 }
 
 #top {
     border: solid green 3px;
     display: flex;
     justify-content: space-between;
-    margin: 20px 20px;
+    margin: 20px;
 }
 
 #left{
@@ -47,4 +49,5 @@
 
 .forecast-day{
     border: black solid 3px;
+    margin: 10px;
 }

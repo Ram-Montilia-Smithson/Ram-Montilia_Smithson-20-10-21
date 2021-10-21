@@ -1,0 +1,10 @@
+#favorites{
+    border: solid black 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.favorites {
+    border: red solid 3px;
+    margin: 20px;
+}

@@ -10,14 +10,16 @@ function Home() {
     return (
         <div id="home">
             <InputGroup id="search-group">
+                <InputGroup.Text>&#128269;</InputGroup.Text>
                 <FormControl
+                    as="input"
                     id="search-input"
-                    placeholder="&#128269;search..."
+                    placeholder="search..."
                     aria-label="search"
                     aria-describedby="search"
                     
                 />
-                <Button id="search-button">search</Button>
+                <Button id="search-button" variant="outline-secondary">search</Button>
             </InputGroup>
             <div id="content">
                     <div id="top">
@@ -39,23 +41,23 @@ function Home() {
                     <div id="forecast">
                         <span className="forecast-day">
                             <h3>Sunday</h3>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>C</p>
                         </span>
                         <span className="forecast-day">
                             <h3>Monday</h3>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>C</p>
                         </span>
                         <span className="forecast-day">
                             <h3>Tuesday</h3>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>C</p>
                         </span>
                         <span className="forecast-day">
                             <h3>Wednesday</h3>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>C</p>
                         </span>
                         <span className="forecast-day">
                             <h3>Thursday</h3>
-                                <p>38<sup>o</sup>C</p>
+                            <p>38<sup>o</sup>C</p>
                         </span>
                     </div>
                 </div>
