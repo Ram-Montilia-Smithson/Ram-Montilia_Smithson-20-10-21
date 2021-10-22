@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  min-height: 100vh;
+  min-height: 98vh;
 }
 
 .App-header {
@@ -15,7 +15,6 @@
 #buttons{
   display: flex;
   justify-content: space-between;
-  width: 30%;
 }
 
 Button{

@@ -1,0 +1,180 @@
+{
+    "Headline": {
+        "EffectiveDate": "2021-10-22T14:00:00+01:00",
+        "EffectiveEpochDate": 1634907600,
+        "Severity": 5,
+        "Text": "Expect showers Friday afternoon",
+        "Category": "rain",
+        "EndDate": "2021-10-22T20:00:00+01:00",
+        "EndEpochDate": 1634929200,
+        "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?lang=en-us",
+        "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?lang=en-us"
+    },
+    "DailyForecasts": [
+        {
+            "Date": "2021-10-22T07:00:00+01:00",
+            "EpochDate": 1634882400,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 44,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 52,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 13,
+                "IconPhrase": "Mostly cloudy w/ showers",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
+            },
+            "Night": {
+                "Icon": 35,
+                "IconPhrase": "Partly cloudy",
+                "HasPrecipitation": false
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=1&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=1&lang=en-us"
+        },
+        {
+            "Date": "2021-10-23T07:00:00+01:00",
+            "EpochDate": 1634968800,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 50,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 54,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 4,
+                "IconPhrase": "Intermittent clouds",
+                "HasPrecipitation": false
+            },
+            "Night": {
+                "Icon": 12,
+                "IconPhrase": "Showers",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=2&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=2&lang=en-us"
+        },
+        {
+            "Date": "2021-10-24T07:00:00+01:00",
+            "EpochDate": 1635055200,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 47,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 57,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 14,
+                "IconPhrase": "Partly sunny w/ showers",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
+            },
+            "Night": {
+                "Icon": 36,
+                "IconPhrase": "Intermittent clouds",
+                "HasPrecipitation": false
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=3&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=3&lang=en-us"
+        },
+        {
+            "Date": "2021-10-25T07:00:00+01:00",
+            "EpochDate": 1635141600,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 47,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 55,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 3,
+                "IconPhrase": "Partly sunny",
+                "HasPrecipitation": false
+            },
+            "Night": {
+                "Icon": 38,
+                "IconPhrase": "Mostly cloudy",
+                "HasPrecipitation": false
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=4&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=4&lang=en-us"
+        },
+        {
+            "Date": "2021-10-26T07:00:00+01:00",
+            "EpochDate": 1635228000,
+            "Temperature": {
+                "Minimum": {
+                    "Value": 57,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 60,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "Day": {
+                "Icon": 18,
+                "IconPhrase": "Rain",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Light"
+            },
+            "Night": {
+                "Icon": 12,
+                "IconPhrase": "Showers",
+                "HasPrecipitation": true,
+                "PrecipitationType": "Rain",
+                "PrecipitationIntensity": "Moderate"
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=5&lang=en-us",
+            "Link": "http://www.accuweather.com/en/gb/manchester/m15-6/daily-weather-forecast/329260?day=5&lang=en-us"
+        }
+    ]
+}

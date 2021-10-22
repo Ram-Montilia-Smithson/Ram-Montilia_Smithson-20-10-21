@@ -1,25 +1,14 @@
 #home {
+    position: relative;
     border: solid black 5px;
-}
-
-#search{
-    display: flex;
-    justify-content: space-between;
-}
-
-#search-group{
-    width: 80%;
-    margin: 20px auto;
-}
-
-#current-position-button{
-    height: fit-content;
-    align-self: center;
+    min-height: 87vh;
 }
 
 #content{
+    z-index: 1;
     border: solid red 3px;
     margin: 10px 30px;
+    min-height: 60vh;
 }
 
 #top {
@@ -39,14 +28,24 @@
 }
 
 #bottom{
+    min-height: 50vh;
     border: solid 3px purple;
-    margin: 20px 20px;
+    margin: 20px;
+}
+
+#headline{
+    font-size: 50px;
+    height: 200px;
+    padding: 100px;
 }
 
 #forecast{
     border: solid blue 3px;
     display: flex;
+    /* margin: 40px; */
+    /* margin-bottom: -80px; */
     justify-content: space-around;
+    height: 200px;
 }
 
 .forecast-day{

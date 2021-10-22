@@ -1,0 +1,33 @@
+#search{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#search-group{
+    width: 70%;
+    margin: 20px;
+}
+
+#search-button {
+    margin: 0;
+}
+
+#current-position-button{
+    height: fit-content;
+    align-self: center;
+}
+
+#dropdown{
+    z-index: 1;
+    position: absolute;
+    width: 60%;
+    margin-top: -40px;
+    margin-left: 40px;
+}
+
+.dropdown-item{
+    border: 1px solid black;
+    text-align: left;
+    background-color: white;
+}
