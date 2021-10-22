@@ -1,7 +1,7 @@
 #home {
     position: relative;
     border: solid black 5px;
-    min-height: 85vh;
+    min-height: 65vh;
 }
 
 #content{
@@ -28,7 +28,7 @@
 }
 
 #bottom{
-    min-height: 50vh;
+    min-height: 40vh;
     border: solid 3px purple;
     margin: 20px;
     display: flex;
