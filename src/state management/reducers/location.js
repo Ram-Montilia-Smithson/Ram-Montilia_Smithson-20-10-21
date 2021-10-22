@@ -1,4 +1,4 @@
-const locationReducer = (state = "here", action) => {
+const locationReducer = (state = {}, action) => {
     switch (action.type) {
         case "CHANGELOCATION":
             return action.value;

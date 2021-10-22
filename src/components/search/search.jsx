@@ -30,20 +30,18 @@ function Search() {
 
     const autoComplete = async (searchText) => {
         dispatch(changeSearch(searchText))
-        console.log("searchText", searchText);
         const autoCompleteSearchArray = await getAutoCompleteSearch(searchText);
-        console.log(autoCompleteSearchArray);
         dispatch(changeSearchResponse(autoCompleteSearchArray))
     }
 
     const getWeather = async (city) => {
         const weather = await getCurrentConditions(city.Key)
         const forecast = await getForecast(city.key)
-        console.log(forecast);
-        console.log(weather);
+        // console.log(forecast);
+        // console.log(weather);
         dispatch(changeWeather(weather))
         dispatch(changeSearch(""))
-        dispatch(changeLocation(city.name))
+        dispatch(changeLocation(city))
         dispatch(changeForecast(forecast))
     }
 
@@ -65,7 +63,7 @@ function Search() {
                     id="search-button"
                     size="lg"
                     variant="outline-secondary"
-                    // onClick=""
+                    // onClick=""add an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick actionadd an onclick action
                 >
                     search
                 </Button>
@@ -80,13 +78,14 @@ function Search() {
             </Button>
             </div>
             {search && <div id="dropdown">
-                {searchResponse.map(item => {
+                {searchResponse.map(city => {
                     return (
                         <span
+                            key={city.key}
                             className="dropdown-item"
-                            onClick={() => getWeather(item)}
+                            onClick={() => getWeather(city)}
                         >
-                            {item.name}
+                            {city.name}
                         </span>
                     )
                 })}

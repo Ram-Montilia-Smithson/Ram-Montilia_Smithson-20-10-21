@@ -1,5 +1,6 @@
 import { combineReducers } from "redux"
 import degreesReducer from "./degrees";
+import favoritesReducer from "./favorites";
 import forecastReducer from "./forecast";
 import locationReducer from "./location";
 import modeReducer from "./mode";
@@ -15,7 +16,8 @@ const allReducers = combineReducers({
     search: searchReducer,
     searchResponse: searchResponseReducer,
     weather: weatherReducer,
-    forecast: forecastReducer
+    forecast: forecastReducer,
+    favorites: favoritesReducer
 })
 
 export default allReducers

@@ -1,5 +1,5 @@
 export const changeLocation = (location) => {
-    if (location) {
+    if (typeof location === "object") {
         return {
             type: "CHANGELOCATION",
             value: location
@@ -63,6 +63,16 @@ export const changeForecast = (forecast) => {
         return {
             type: "CHANGEFORECAST",
             value: forecast
+        }
+    }
+    else return { type: null }
+}
+
+export const changeFavorites = (favorite) => {
+    if (typeof favorite === "string"){
+        return {
+            type: "CHANGEFAVORITES",
+            value: favorite
         }
     }
     else return { type: null }

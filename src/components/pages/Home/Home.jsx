@@ -2,14 +2,24 @@ import React from 'react'
 import "./Home.css"
 import Button from 'react-bootstrap/Button';
 // import {heart} from ""
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Search from '../../search/search';
+import { changeFavorites } from '../../../state management/actions';
 
 function Home() {
+
+    const dispatch = useDispatch()
 
     // const degrees = useSelector(state => state.degrees)
     const weather = useSelector(state => state.weather)
     const forecast = useSelector(state => state.forecast)
+    const location = useSelector(state => state.location)
+    // const favorites = useSelector(state => state.favorites)
+
+    const addToFavorites = () => {
+        const favorite = location.key
+        dispatch(changeFavorites(favorite))
+    }
 
     return (
         <div id="home">
@@ -19,14 +29,14 @@ function Home() {
                         <div id="left">
                             <img id="left-img" src="" alt="" width="100" height="100" />
                             <div id="left-name">
-                                <h2>Tel Aviv</h2>
+                            <h2>{location.name}</h2>
                             {Object.keys(weather).length > 0 && <h3>{weather.Temperature.Metric.Value}<sup>o</sup>{weather.Temperature.Metric.Unit}</h3>}
                             </div>
                         </div>
                         <div id="right">
                             <img src="" alt="" width="50" height="50"/>
                         {/* <img src="" alt=""  width="50" height="50"/> */}
-                            <Button>Add To Favorites</Button>
+                        {<Button onClick={() => addToFavorites()}>Add To Favorites</Button>}
                         </div>
                     </div>
                 <div id="bottom">
@@ -35,7 +45,7 @@ function Home() {
                         <div id="forecast">
                         {forecast.DailyForecasts.map(day => {
                             return (
-                                <span className="forecast-day">
+                                <span key={day.EpochDate} className="forecast-day">
                                     <h3>{new Date(day.EpochDate * 1000).toLocaleDateString()}</h3>
                                     <strong>Day:</strong><span>{day.Day.IconPhrase}</span><br/>
                                     <strong>Night:</strong><span>{day.Night.IconPhrase}</span><br/>
