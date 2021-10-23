@@ -1,6 +1,7 @@
 import AutoCompleteSearchResponseExample from "./AutoCompleteSearchResponseExample.json"
 import CurrentConditionResponseExample from "./CurrentConditionResponseExample.json"
 import DaysOfDailyForecast from "./5DaysOfDailyForecast.json"
+import GeoPositionSearchResponseExample from "./GeoPositionSearchResponseExample.json"
 
 // const apikey = "8AAT8cv2NIYsuujdj5Gx0CKFiLnxymvj"
 
@@ -18,16 +19,19 @@ export const getCurrentConditions = async (cityKey) => {
     // return data[0]
 }
 
-// get city information
-// const getCity = async (city) => {
+// get coords weather information
+export const getGeoposition = async (latitude, longitude) => {
 
-//     const baseURL = "http://dataservice.accuweather.com/locations/v1/cities/search"
-//     const query = `?apikey=${apikey}&q=${city}`
-//     const response = await fetch(baseURL + query);
-//     const data = await response.json();
+    const data = GeoPositionSearchResponseExample
+    return data
+    // console.log(latitude, longitude);
+    // const baseURL = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search"
+    // const query = `?apikey=${apikey}&q=${latitude},${longitude}`
+    // const response = await fetch(baseURL + query);
+    // const data = await response.json();
 
-//     return data[0]
-// }
+    // return data
+}
 
 // get auto complete search
 export const getAutoCompleteSearch = async (searchText) => {

@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   min-height: 98vh;
+  background-color: rgb(240, 240, 240);
+
 }
 
 .App-header {
@@ -8,13 +10,17 @@
   /* flex-direction: row; */
   /* align-items:initial; */
   justify-content: space-between;
-  margin: 10px 10px;
+  /* margin: 10px 10px; */
   font-size: calc(10px + 2vmin);
+}
+
+#navbar-headline {
+  display: inline-block;
 }
 
 #buttons {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 Button {
@@ -29,4 +35,6 @@ Button {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgb(230, 230, 230);;
+  /* color: white; */
 }

@@ -69,7 +69,7 @@ export const changeForecast = (forecast) => {
 }
 
 export const changeFavorites = (favorite) => {
-    if (typeof favorite === "string"){
+    if (typeof favorite === "object"){
         return {
             type: "CHANGEFAVORITES",
             value: favorite

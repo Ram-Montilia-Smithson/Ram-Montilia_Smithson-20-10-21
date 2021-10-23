@@ -17,7 +17,7 @@ const allReducers = combineReducers({
     searchResponse: searchResponseReducer,
     weather: weatherReducer,
     forecast: forecastReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
 })
 
 export default allReducers
