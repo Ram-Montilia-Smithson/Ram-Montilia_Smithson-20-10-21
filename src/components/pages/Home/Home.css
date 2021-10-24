@@ -28,11 +28,14 @@
 #left{
     display: flex;
     /* flex-direction: row; */
+    width: 350px;
 }
 
 #right {
     height: fit-content;
     width: 270px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #bottom{

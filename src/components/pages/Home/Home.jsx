@@ -12,11 +12,11 @@ function Home({ home, searchRef, contentRef, app }) {
 
     const dispatch = useDispatch()
 
-    // const degrees = useSelector(state => state.degrees)
     const weather = useSelector(state => state.weather)
     const forecast = useSelector(state => state.forecast)
     const location = useSelector(state => state.location)
     const favorites = useSelector(state => state.favorites)
+
     const favoritesButton = useRef(true)
 
     useEffect(() => {
@@ -26,6 +26,23 @@ function Home({ home, searchRef, contentRef, app }) {
             contentRef.current.classList.toggle("contentMode");
         }
     }, [app, home, searchRef, contentRef])
+
+    console.log(favorites, location);
+    favorites.every((city, index) => {
+        if (city.location.name === location.name) {
+            console.log("found");
+            favoritesButton.current = false
+            console.log(favoritesButton.current);
+            return false
+        }
+        if (index + 1 === favorites.length) {
+            console.log("not found");
+            favoritesButton.current = true
+            console.log(favoritesButton.current);
+            return false
+        }
+        else {return true}
+    });
 
     const addToFavorites = () => {
         console.log(favorites);

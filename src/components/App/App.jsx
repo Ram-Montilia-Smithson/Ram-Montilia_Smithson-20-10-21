@@ -8,23 +8,13 @@ import Favorites from '../pages/favorites/favorites';
 import { useEffect, useRef } from 'react';
 import { getCurrentConditions, getForecast } from '../../forecast/accuweatherFunctions';
 import { changeForecast, changeLocation, changeWeather } from '../../state management/actions';
-// import { useDispatch } from 'react-redux';
 import logo from "../../icons/rainy-day.png"
 import {useDispatch} from 'react-redux';
-// import { changeDegrees, changeLocation, changeMode } from '../../state management/actions';
-// import { changeWeather } from "../../state management/actions"
 
 function App() {
 
-  // const mode = useSelector(state => state.mode)
-  // () => dispatch(changeLocation())
-  // () => dispatch(changeMode(mode))
-  // const degrees = useSelector(state => state.degrees)
-  // () => dispatch(changeDegrees(degrees)) 
-  // const dispatch = useDispatch()
-  
-  // console.log(degrees, mode);
   const dispatch = useDispatch()
+
   const app = useRef()
   const home = useRef()
   const searchRef = useRef()
@@ -42,9 +32,6 @@ function App() {
       dispatch(changeLocation(telAviv))
       dispatch(changeForecast(forecast))
     })()
-    // return () => {
-      
-    // }
   }, [dispatch])
     
   const toggleMode = () => {
