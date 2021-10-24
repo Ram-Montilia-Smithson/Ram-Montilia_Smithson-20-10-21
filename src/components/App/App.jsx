@@ -74,8 +74,8 @@ function App() {
         </Switch>
       </Router>
       <div ref={creditsRef} className="bg-dark text-light" id="credits">
-        Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com </a>
-        and Tel Aviv Architecture Icon by Eynav Raphael from <a href="https://thenounproject.com/"> the Noun Project</a>
+        Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        <span> and Tel Aviv Architecture Icon by Eynav Raphael from <a href="https://thenounproject.com/"> the Noun Project</a></span>
       </div>
     </div>
   );
