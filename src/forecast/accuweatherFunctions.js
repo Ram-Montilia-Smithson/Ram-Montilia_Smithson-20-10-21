@@ -11,7 +11,7 @@ export const getCurrentConditions = async (cityKey) => {
     // const data = CurrentConditionResponseExample[0]
     // return data
 
-    const baseURL = "https://dataservice.accuweather.com/currentconditions/v1/"
+    const baseURL = "https://dataservice.accuweather.com/currentconditions/v1/" 
     const query = `${cityKey}?apikey=${apikey}`
     const response = await fetch(baseURL + query)
     console.log(response);
