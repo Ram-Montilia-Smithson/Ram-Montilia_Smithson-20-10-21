@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Search from '../../search/search';
 import { changeFavorites } from '../../../state management/actions';
 
-function Home() {
+function Home({ home, searchRef, contentRef, app }) {
 
     const dispatch = useDispatch()
 
@@ -20,11 +20,12 @@ function Home() {
     const favoritesButton = useRef(true)
 
     useEffect(() => {
-
-        return () => {
-
+        if (app.current.classList[1]) {
+            home.current.classList.toggle("lightMode");
+            searchRef.current.classList.toggle("lightMode");
+            contentRef.current.classList.toggle("contentMode");
         }
-    }, [])
+    }, [app, home, searchRef, contentRef])
 
     const addToFavorites = () => {
         console.log(favorites);
@@ -51,9 +52,9 @@ function Home() {
     }
 
     return (
-        <div id="home">
-            <Search />
-            <div id="content">
+        <div id="home" ref={home}>
+            <Search searchRef={searchRef} />
+            <div ref={contentRef} id="content">
                 <div id="top">
                     <div id="left">
                         <img id="left-img" src="" alt="" width="100" height="100" />
@@ -82,15 +83,15 @@ function Home() {
                         <div id="forecast">
                             {forecast.DailyForecasts.map(day => {
                                 return (
-                                    <Card key={day.EpochDate} className="forecast-day px-2 py-2 bg-light">
+                                    <Card key={day.EpochDate} className="forecast-day px-2 py-2">
                                         <Card.Header className="my-0 h4">{new Date(day.EpochDate * 1000).toLocaleDateString()}</Card.Header>
                                         <Card.Header>
-                                        <strong>Day: </strong><span>{day.Day.IconPhrase}</span><br/>
-                                        <strong>Night: </strong><span>{day.Night.IconPhrase}</span>
+                                            <strong>Day: </strong><span>{day.Day.IconPhrase}</span><br />
+                                            <strong>Night: </strong><span>{day.Night.IconPhrase}</span>
                                         </Card.Header>
                                         <Card.Footer>
-                                        <span><strong>Minimum: </strong>{day.Temperature.Minimum.Value}<sup>o</sup>{day.Temperature.Minimum.Unit}</span><br/>
-                                        <span><strong>Maximum: </strong>{day.Temperature.Maximum.Value}<sup>o</sup>{day.Temperature.Maximum.Unit}</span>
+                                            <span><strong>Minimum: </strong>{day.Temperature.Minimum.Value}<sup>o</sup>{day.Temperature.Minimum.Unit}</span><br />
+                                            <span><strong>Maximum: </strong>{day.Temperature.Maximum.Value}<sup>o</sup>{day.Temperature.Maximum.Unit}</span>
                                         </Card.Footer>
                                     </Card>
                                 )

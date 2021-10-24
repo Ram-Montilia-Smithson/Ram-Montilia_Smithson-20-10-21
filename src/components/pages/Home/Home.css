@@ -56,7 +56,7 @@
     /* height: 200px; */
 }
 
-/* .forecast-day{ */
-    /* border: black solid 3px; */
-    /* margin: 10px; */
-/* } */
+.forecast-day{
+    background-color: rgb(75, 75, 75);
+    color: rgb(240, 240, 240);
+}

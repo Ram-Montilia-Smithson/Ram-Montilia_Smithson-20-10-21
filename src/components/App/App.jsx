@@ -5,30 +5,34 @@ import Navbar from "react-bootstrap/Navbar"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pages/Home/Home';
 import Favorites from '../pages/favorites/favorites';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { getCurrentConditions, getForecast } from '../../forecast/accuweatherFunctions';
 import { changeForecast, changeLocation, changeWeather } from '../../state management/actions';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import logo from "../../icons/rainy-day.png"
-// import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 // import { changeDegrees, changeLocation, changeMode } from '../../state management/actions';
 // import { changeWeather } from "../../state management/actions"
 
 function App() {
 
-  // const location = useSelector(state => state.location)
-  // () => dispatch(changeLocation())
   // const mode = useSelector(state => state.mode)
+  // () => dispatch(changeLocation())
   // () => dispatch(changeMode(mode))
   // const degrees = useSelector(state => state.degrees)
-  // () => dispatch(changeDegrees(degrees))
+  // () => dispatch(changeDegrees(degrees)) 
   // const dispatch = useDispatch()
-
+  
   // console.log(degrees, mode);
   const dispatch = useDispatch()
-
-
-
+  const app = useRef()
+  const home = useRef()
+  const searchRef = useRef()
+  const headerRef = useRef()
+  const creditsRef = useRef()
+  const headlineRef = useRef()
+  const contentRef = useRef()
+  
   useEffect(() => {
     (async () => {
       const telAviv = { key: "215854", name: "Tel Aviv" }
@@ -38,16 +42,26 @@ function App() {
       dispatch(changeLocation(telAviv))
       dispatch(changeForecast(forecast))
     })()
-    return () => {
-
-    }
+    // return () => {
+      
+    // }
   }, [dispatch])
-
+    
+  const toggleMode = () => {
+    app.current.classList.toggle("lightMode");
+    home.current.classList.toggle("lightMode");
+    searchRef.current.classList.toggle("lightMode");
+    headerRef.current.classList.toggle("darkMode");
+    creditsRef.current.classList.toggle("darkMode");
+    headlineRef.current.classList.toggle("darkMode");
+    contentRef.current.classList.toggle("contentMode");
+  }
+  
 
   return (
-    <div className="App">
+    <div ref={app} className="App">
       <Router>
-        <Navbar bg="dark" variant="dark" className="App-header">
+        <Navbar ref={headerRef} className="App-header">
           <Navbar.Brand>
             <img
               src={logo}
@@ -56,27 +70,23 @@ function App() {
               className="d-inline-block align-middle mb-2 mx-3"
               alt="React Bootstrap logo"
             />
-            <h1 id="navbar-headline">Herolo Weather Task</h1>
+            <h1 ref={headlineRef} id="navbar-headline">Herolo Weather Task</h1>
           </Navbar.Brand>
-          {/* <div>location {location}</div> */}
-          {/* <button >change location</button> */}
           <span id="toggles">
             <Button variant="secondary" ><sup>o </sup>C/F</Button>
-            <Button variant="secondary" >Dark/Light</Button>
+            <Button onClick={() => toggleMode()} variant="secondary" >Dark/Light</Button>
           </span>
           <Nav.Item id="links">
             <Link to="/"><Button variant="secondary">Home</Button></Link>
-            <Link to="/favorites"><Button variant="secondary">Favorites</Button></Link>
+            <Link to="/favorites"><Button  variant="secondary">Favorites</Button></Link>
           </Nav.Item>
         </Navbar>
         <Switch>
-          <Route path="/favorites">
-            <Favorites />
-          </Route>
-          <Route path="/"><Home /></Route>
+          <Route path="/favorites"><Favorites home={home} searchRef={searchRef} contentRef={contentRef} app={app}/></Route>
+          <Route path="/"><Home home={home} searchRef={searchRef} contentRef={contentRef} app={app}/></Route>
         </Switch>
       </Router>
-      <div className="bg-dark text-light" id="credits">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div ref={creditsRef} className="bg-dark text-light" id="credits">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
   );
 }

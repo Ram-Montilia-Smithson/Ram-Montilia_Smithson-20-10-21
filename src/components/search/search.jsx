@@ -8,7 +8,7 @@ import { getAutoCompleteSearch, getCurrentConditions, getForecast, getGeopositio
 import { changeForecast, changeLocation, changeSearch, changeSearchResponse, changeWeather } from '../../state management/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-function Search() {
+function Search({ searchRef }) {
 
     const dispatch = useDispatch()
     const search = useSelector(state => state.search)
@@ -16,12 +16,12 @@ function Search() {
 
     const success = async (position) => {
         console.log(position.coords);
-        const location = await getGeoposition(position.coords.latitude,position.coords.longitude)
+        const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.Key)
         dispatch(changeWeather(weather))
         dispatch(changeForecast(forecast))
-        dispatch(changeLocation({name: location.LocalizedName, key: location.Key}))
+        dispatch(changeLocation({ name: location.LocalizedName, key: location.Key }))
     }
 
     const error = (error) => {
@@ -49,28 +49,28 @@ function Search() {
     }
 
     return (
-        <div>
-        <div id="search">
-            <InputGroup id="search-group">
-                <InputGroup.Text>&#128269;</InputGroup.Text>
-                <FormControl
-                    as="input"
-                    id="search-input"
-                    placeholder="Enter Location"
-                    aria-label="search"
-                    aria-describedby="search"
-                    onChange={(e) => autoComplete(e.target.value)}
-                    value={search}
+        <div >
+            <div ref={searchRef} id="search">
+                <InputGroup id="search-group">
+                    <InputGroup.Text>&#128269;</InputGroup.Text>
+                    <FormControl
+                        as="input"
+                        id="search-input"
+                        placeholder="Enter Location"
+                        aria-label="search"
+                        aria-describedby="search"
+                        onChange={(e) => autoComplete(e.target.value)}
+                        value={search}
                     />
-            </InputGroup>
-            <Button
-                id="current-position-button"
-                onClick={() => getCurrentLocation()}
-                size="lg"
+                </InputGroup>
+                <Button
+                    id="current-position-button"
+                    onClick={() => getCurrentLocation()}
+                    size="lg"
                     variant="secondary"
-            >
-                Search&nbsp;Current&nbsp;Location
-            </Button>
+                >
+                    Search&nbsp;Current&nbsp;Location
+                </Button>
             </div>
             {search && <div id="dropdown">
                 {searchResponse.map(location => {
