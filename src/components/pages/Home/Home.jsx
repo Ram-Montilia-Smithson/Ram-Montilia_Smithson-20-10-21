@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Card from "react-bootstrap/Card"
 import heart from "../../../icons/heart.png"
 import emptyHeart from "../../../icons/empty-heart.png"
+import telAviv from "../../../icons/Tel Aviv_Architecture.png"
+import geoPosition from "../../../icons/geoPosition.png"
+import worldMap from "../../../icons/earth.png"
 import { useDispatch, useSelector } from 'react-redux';
 import Search from '../../search/search';
 import { changeFavorites } from '../../../state management/actions';
@@ -27,7 +30,6 @@ function Home({ home, searchRef, contentRef, app }) {
         }
     }, [app, home, searchRef, contentRef])
 
-    console.log(favorites, location);
     favorites.every((city, index) => {
         if (city.location.name === location.name) {
             console.log("found");
@@ -74,7 +76,9 @@ function Home({ home, searchRef, contentRef, app }) {
             <div ref={contentRef} id="content">
                 <div id="top">
                     <div id="left">
-                        <img id="left-img" src="" alt="" width="100" height="100" />
+                        {location.name === "Tel Aviv" && <img id="left-img" src={telAviv} alt="Tel Aviv" width="100" height="100" />}
+                        {location.img === "geoPosition" && location.name !== "Tel Aviv" && <img id="left-img" src={geoPosition} alt="geoPosition" width="100" height="100" />}
+                        {location.img === "worldMap" && location.name !== "Tel Aviv" && <img id="left-img" src={worldMap} alt="worldMap" width="100" height="100" />}
                         <div id="left-name">
                             <h2>{location.name}</h2>
                             {Object.keys(weather).length > 0 && <h3>{weather.Temperature.Metric.Value}<sup>o</sup>{weather.Temperature.Metric.Unit}</h3>}

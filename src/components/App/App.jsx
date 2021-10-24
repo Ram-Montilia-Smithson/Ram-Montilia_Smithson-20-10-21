@@ -25,7 +25,7 @@ function App() {
   
   useEffect(() => {
     (async () => {
-      const telAviv = { key: "215854", name: "Tel Aviv" }
+      const telAviv = { key: "215854", name: "Tel Aviv", img: "Tel Aviv" }
       const weather = await getCurrentConditions(telAviv.key)
       const forecast = await getForecast(telAviv.key)
       dispatch(changeWeather(weather))
@@ -73,7 +73,10 @@ function App() {
           <Route path="/"><Home home={home} searchRef={searchRef} contentRef={contentRef} app={app}/></Route>
         </Switch>
       </Router>
-      <div ref={creditsRef} className="bg-dark text-light" id="credits">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+      <div ref={creditsRef} className="bg-dark text-light" id="credits">
+        Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com </a>
+        and Tel Aviv Architecture Icon by Eynav Raphael from <a href="https://thenounproject.com/"> the Noun Project</a>
+      </div>
     </div>
   );
 }

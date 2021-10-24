@@ -17,11 +17,12 @@ function Search({ searchRef }) {
     const success = async (position) => {
         console.log(position.coords);
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
+        console.log(location);
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.Key)
         dispatch(changeWeather(weather))
         dispatch(changeForecast(forecast))
-        dispatch(changeLocation({ name: location.LocalizedName, key: location.Key }))
+        dispatch(changeLocation({ name: location.LocalizedName, key: location.Key, img: "geoPosition" }))
     }
 
     const error = (error) => {
@@ -40,6 +41,7 @@ function Search({ searchRef }) {
     }
 
     const getWeather = async (location) => {
+        console.log(location);
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.key)
         dispatch(changeWeather(weather))

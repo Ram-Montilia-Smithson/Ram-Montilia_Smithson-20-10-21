@@ -39,7 +39,8 @@ export const getAutoCompleteSearch = async (searchText) => {
     const autoCompleteSearch = AutoCompleteSearchResponseExample.map(element => {
         return ({
             name: element.LocalizedName,
-            key: element.Key
+            key: element.Key,
+            img: "worldMap"
         })
     });
     return autoCompleteSearch
