@@ -23,8 +23,8 @@ function Favorites({ home, searchRef, contentRef, app }) {
 
     const choosingFavorite = async (locationWeather) => {
         console.log(locationWeather);
-        const weather = await getCurrentConditions(locationWeather.location.Key)
-        const forecast = await getForecast(locationWeather.location.Key)
+        const weather = await getCurrentConditions(locationWeather.location.key)
+        const forecast = await getForecast(locationWeather.location.key)
         dispatch(changeWeather(weather))
         dispatch(changeLocation(locationWeather.location))
         dispatch(changeForecast(forecast))
