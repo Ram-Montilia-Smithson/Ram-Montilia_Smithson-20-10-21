@@ -22,13 +22,17 @@ function Favorites({ home, searchRef, contentRef, app }) {
     }, [app, home, searchRef, contentRef])
 
     const choosingFavorite = async (locationWeather) => {
-        console.log(locationWeather);
+        // try{
+        // console.log(locationWeather);
         const weather = await getCurrentConditions(locationWeather.location.key)
         const forecast = await getForecast(locationWeather.location.key)
         dispatch(changeWeather(weather))
         dispatch(changeLocation(locationWeather.location))
         dispatch(changeForecast(forecast))
-        history.push("/");
+            history.push("/");
+        // } catch (err) {
+            // alert(err)
+        // }
     }
 
     return (

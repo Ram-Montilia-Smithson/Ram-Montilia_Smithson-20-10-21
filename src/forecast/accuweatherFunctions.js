@@ -11,13 +11,17 @@ export const getCurrentConditions = async (cityKey) => {
     // const data = CurrentConditionResponseExample[0]
     // return data
 
-    const baseURL = "https://dataservice.accuweather.com/currentconditions/v1/" 
-    const query = `${cityKey}?apikey=${apikey}`
-    const response = await fetch(baseURL + query)
-    console.log(response);
-    const data = await response.json()
-    console.log(data);
-    return data[0]
+    try {
+        const baseURL = "https://dataservice.accuweather.com/currentconditions/v1/" 
+        const query = `${cityKey}?apikey=${apikey}`
+        const response = await fetch(baseURL + query)
+        console.log(response);
+        const data = await response.json()
+        console.log(data);
+        return data[0]
+    } catch (err) {
+        alert(err)
+    }
 }
 
 // get coords weather information
@@ -25,13 +29,18 @@ export const getGeoposition = async (latitude, longitude) => {
 
     // const data = GeoPositionSearchResponseExample
     // return data
-    // console.log(latitude, longitude);
+
+    try {
     const baseURL = "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search"
     const query = `?apikey=${apikey}&q=${latitude},${longitude}`
     const response = await fetch(baseURL + query);
+    console.log(response);
     const data = await response.json();
 
-    return data
+        return data
+    } catch (err) {
+        alert(err)
+    }
 }
 
 // get auto complete search
@@ -45,10 +54,12 @@ export const getAutoCompleteSearch = async (searchText) => {
     //     })
     // });
     // return autoCompleteSearch
-
+    
+    try {
     const baseURL = "https://dataservice.accuweather.com/locations/v1/cities/autocomplete"
     const query = `?apikey=${apikey}&q=${searchText}`
     const response = await fetch(baseURL + query);
+    console.log(response);
     const data = await response.json()
 
     const autoCompleteSearch = await data.map(element => {
@@ -58,7 +69,10 @@ export const getAutoCompleteSearch = async (searchText) => {
             img: "worldMap"
         })
     });
-    return autoCompleteSearch
+        return autoCompleteSearch
+    } catch (err) {
+        alert(err)
+    }
 }
 
 // get forecast
@@ -66,11 +80,16 @@ export const getForecast = async (cityKey) => {
 
     // const data = DaysOfDailyForecast
     // return data
-
+    
+    try{
     const baseURL = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/"
     const query = `${cityKey}?apikey=${apikey}`
     const response = await fetch(baseURL + query)
+    console.log(response);
     const data = await response.json()
 
-    return data
+        return data
+    } catch (err) {
+        alert(err)
+    }
 }

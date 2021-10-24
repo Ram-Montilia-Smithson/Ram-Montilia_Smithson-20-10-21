@@ -15,13 +15,17 @@ function Search({ searchRef }) {
     const searchResponse = useSelector(state => state.searchResponse)
 
     const success = async (position) => {
+        try{
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
         // console.log(location);
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.Key)
         dispatch(changeWeather(weather))
         dispatch(changeForecast(forecast))
-        dispatch(changeLocation({ name: location.LocalizedName, key: location.Key, img: "geoPosition" }))
+            dispatch(changeLocation({ name: location.LocalizedName, key: location.Key, img: "geoPosition" }))
+        } catch (err) {
+            alert(err)
+        }
     }
 
     const error = (error) => {

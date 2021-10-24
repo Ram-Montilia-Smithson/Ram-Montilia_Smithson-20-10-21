@@ -32,37 +32,37 @@ function Home({ home, searchRef, contentRef, app }) {
 
     favorites.every((city, index) => {
         if (city.location.name === location.name) {
-            console.log("found");
+            // console.log("found");
             favoritesButton.current = false
-            console.log(favoritesButton.current);
+            // console.log(favoritesButton.current);
             return false
         }
         if (index + 1 === favorites.length) {
-            console.log("not found");
+            // console.log("not found");
             favoritesButton.current = true
-            console.log(favoritesButton.current);
+            // console.log(favoritesButton.current);
             return false
         }
-        else {return true}
+        else { return true }
     });
 
     const addToFavorites = () => {
-        console.log(favorites);
+        // console.log(favorites);
         if (!favorites.length) {
-            console.log("empty - adding");
+            // console.log("empty - adding");
             favoritesButton.current = false
             dispatch(changeFavorites({ location, weather }))
             return
         }
         favorites.forEach((city, index) => {
             if (city.location.name === location.name) {
-                console.log("found - deleting");
+                // console.log("found - deleting");
                 favoritesButton.current = true
                 dispatch(changeFavorites({ location, weather }))
                 return
             }
             if (index + 1 === favorites.length) {
-                console.log("not found - adding");
+                // console.log("not found - adding");
                 favoritesButton.current = false
                 dispatch(changeFavorites({ location, weather }))
                 return
@@ -89,18 +89,18 @@ function Home({ home, searchRef, contentRef, app }) {
                         {favoritesButton.current ?
                             <>
                                 <img src={emptyHeart} alt="add to favorites" width="50" height="50" />
-                                {<Button variant="secondary" disabled={Object.keys(location).length === 0} onClick={() => addToFavorites()}>Add To Favorites</Button>}
+                                {<Button variant="secondary" disabled={Object.keys(weather).length === 0} onClick={() => addToFavorites()}>Add To Favorites</Button>}
                             </>
                             :
                             <>
                                 <img src={heart} alt="remove from favorites" width="50" height="50" />
-                                <Button variant="secondary" disabled={Object.keys(location).length === 0} onClick={() => addToFavorites()}>Remove From Favorites</Button>
+                                <Button variant="secondary" disabled={Object.keys(weather).length === 0} onClick={() => addToFavorites()}>Remove From Favorites</Button>
                             </>
                         }
                     </div>
                 </div>
                 <div id="bottom">
-                    {Object.keys(forecast).length > 0 &&
+                    {Object.keys(forecast).length > 0 ?
                         <div id="forecast">
                             {forecast.DailyForecasts.map(day => {
                                 return (
@@ -118,6 +118,12 @@ function Home({ home, searchRef, contentRef, app }) {
                                 )
                             })}
                         </div>
+                        :
+                        <>
+                            <h1>Error!</h1>
+                            <h2>The Weather service Is Not Working At The Moment</h2>
+                            <h3>Please Try Again Later</h3>
+                        </>
                     }
                 </div>
             </div>
