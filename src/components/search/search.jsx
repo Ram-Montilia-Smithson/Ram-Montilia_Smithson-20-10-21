@@ -15,9 +15,8 @@ function Search({ searchRef }) {
     const searchResponse = useSelector(state => state.searchResponse)
 
     const success = async (position) => {
-        console.log(position.coords);
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
-        console.log(location);
+        // console.log(location);
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.Key)
         dispatch(changeWeather(weather))
@@ -41,7 +40,7 @@ function Search({ searchRef }) {
     }
 
     const getWeather = async (location) => {
-        console.log(location);
+        // console.log(location);
         const weather = await getCurrentConditions(location.Key)
         const forecast = await getForecast(location.key)
         dispatch(changeWeather(weather))
