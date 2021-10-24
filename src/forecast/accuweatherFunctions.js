@@ -1,7 +1,7 @@
-import AutoCompleteSearchResponseExample from "./AutoCompleteSearchResponseExample.json"
-import CurrentConditionResponseExample from "./CurrentConditionResponseExample.json"
-import DaysOfDailyForecast from "./5DaysOfDailyForecast.json"
-import GeoPositionSearchResponseExample from "./GeoPositionSearchResponseExample.json"
+// import AutoCompleteSearchResponseExample from "./AutoCompleteSearchResponseExample.json"
+// import CurrentConditionResponseExample from "./CurrentConditionResponseExample.json"
+// import DaysOfDailyForecast from "./5DaysOfDailyForecast.json"
+// import GeoPositionSearchResponseExample from "./GeoPositionSearchResponseExample.json"
 
 const apikey = "8AAT8cv2NIYsuujdj5Gx0CKFiLnxymvj"
 
