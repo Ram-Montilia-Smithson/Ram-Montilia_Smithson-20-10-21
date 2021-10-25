@@ -4,7 +4,7 @@ import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button';
 import Modal from "react-bootstrap/Modal"
 import "./search.css"
-import { getAutoCompleteSearch, getCurrentConditions, getForecast, getGeoposition } from '../../forecast/accuweatherFunctions';
+import { getAutoCompleteSearch, getCurrentConditions, getForecast, getGeoposition } from '../../weather/accuweatherFunctions';
 import { changeForecast, changeLocation, changeSearch, changeSearchResponse, changeWeather } from '../../state management/actions';
 import { useDispatch, useSelector } from 'react-redux';
 

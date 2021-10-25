@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pages/Home/Home';
 import Favorites from '../pages/favorites/favorites';
 import { useEffect, useRef, useState } from 'react';
-import { getCurrentConditions, getForecast } from '../../forecast/accuweatherFunctions';
+import { getCurrentConditions, getForecast } from '../../weather/accuweatherFunctions';
 import { changeForecast, changeLocation, changeWeather } from '../../state management/actions';
 import logo from "../../icons/rainy-day.png"
 import { useDispatch } from 'react-redux';
@@ -102,7 +102,7 @@ function App() {
       <div ref={creditsRef} className="bg-dark text-light" id="credits">
         <div>
           <div>Weather information provided by <a href="https://developer.accuweather.com/">AccuWeather</a></div>
-          <span>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
+          <span>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a target="_blank" rel="noreferrer" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
           <span> and The Tel Aviv Architecture Icon by Eynav Raphael from <a href="https://thenounproject.com/"> The Noun Project</a></span>
         </div>
       </div>

@@ -8,26 +8,6 @@ export const changeLocation = (location) => {
     else return { type: null }
 }
 
-export const changeDegrees = (type) => {
-    if (type === "C") {
-        return {type: true}
-    }
-    else if (type === "F") {
-        return {type: false}
-    }
-    else return {type: true}
-}
-
-export const changeMode = (mode) => {
-    if (mode === "DARK") {
-        return {type: true}
-    }
-    if (mode === "LIGHT") {
-        return {type: false}
-    }
-    else return {type: true}
-}
-
 export const changeSearch = (searchText) => {
     if (typeof searchText === "string") {
         return {

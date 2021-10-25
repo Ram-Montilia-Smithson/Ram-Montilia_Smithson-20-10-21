@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getCurrentConditions, getForecast } from '../../../forecast/accuweatherFunctions';
+import { getCurrentConditions, getForecast } from '../../../weather/accuweatherFunctions';
 import "./favorites.css"
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
