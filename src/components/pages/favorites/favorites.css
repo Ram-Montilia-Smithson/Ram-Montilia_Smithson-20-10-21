@@ -1,16 +1,13 @@
 #favorites{
-    /* border: solid black 5px; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    clear: both;
-    min-height: 85vh;
+    min-height: 81vh;
     max-width: 100vw;
     background-color: rgb(240, 240, 240);
 }
 
 .favorites {
-    /* border: red solid 3px; */
     height: 200px;
     width: 200px;
     margin: 20px;
@@ -20,5 +17,4 @@
 
 #no-favorites{
     margin: auto;
-    /* min-height: 65vh; */
 }

@@ -15,7 +15,7 @@ function Favorites({ home, searchRef, contentRef, app }) {
     const history = useHistory();
 
     const dispatch = useDispatch()
-    
+
     const favorites = useSelector(state => state.favorites)
 
     useEffect(() => {
@@ -30,8 +30,6 @@ function Favorites({ home, searchRef, contentRef, app }) {
     const handleShow = () => setShow(true);
 
     const choosingFavorite = async (locationWeather) => {
-        // try{
-        // console.log(locationWeather);
         const weather = await getCurrentConditions(locationWeather.location.Key)
         const forecast = await getForecast(locationWeather.location.Key)
         if (typeof weather === "string") {
@@ -45,10 +43,7 @@ function Favorites({ home, searchRef, contentRef, app }) {
         dispatch(changeWeather(weather))
         dispatch(changeLocation(locationWeather.location))
         dispatch(changeForecast(forecast))
-            history.push("/");
-        // } catch (err) {
-            // alert(err)
-        // }
+        history.push("/");
     }
 
     return (

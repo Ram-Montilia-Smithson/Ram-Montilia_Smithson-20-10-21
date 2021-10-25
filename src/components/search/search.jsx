@@ -22,7 +22,6 @@ function Search({ searchRef }) {
 
     const success = async (position) => {
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
-        // console.log(location);
         if (typeof location === "string") {
             handleShow()
             return
@@ -43,9 +42,8 @@ function Search({ searchRef }) {
 
     }
 
-    const error = (error) => {
-        console.error(error);
-        // handle error using modal
+    const error = () => {
+        handleShow()
     }
 
     const getCurrentLocation = () => {
@@ -63,7 +61,6 @@ function Search({ searchRef }) {
     }
 
     const getWeather = async (location) => {
-        // console.log(location);
         const weather = await getCurrentConditions(location.Key)
         if (typeof weather === "string") {
             handleShow()

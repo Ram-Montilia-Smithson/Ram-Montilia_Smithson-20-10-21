@@ -1,7 +1,6 @@
 #search{
     display: flex;
     justify-content: space-between;
-    /* margin: 20px; */
     background-color: rgb(240, 240, 240); 
 
 }
@@ -11,14 +10,9 @@
     margin: 20px;
 }
 
-#search-button {
-    margin: 0;
-}
-
 #current-position-button{
     height: fit-content;
     align-self: center;
-    /* background-color: rgb(255, 137, 27); */
 }
 
 #dropdown{

@@ -32,37 +32,29 @@ function Home({ home, searchRef, contentRef, app }) {
 
     favorites.every((city, index) => {
         if (city.location.name === location.name) {
-            // console.log("found");
             favoritesButton.current = false
-            // console.log(favoritesButton.current);
             return false
         }
         if (index + 1 === favorites.length) {
-            // console.log("not found");
             favoritesButton.current = true
-            // console.log(favoritesButton.current);
             return false
         }
         else { return true }
     });
 
     const addToFavorites = () => {
-        // console.log(favorites);
         if (!favorites.length) {
-            // console.log("empty - adding");
             favoritesButton.current = false
             dispatch(changeFavorites({ location, weather }))
             return
         }
         favorites.forEach((city, index) => {
             if (city.location.name === location.name) {
-                // console.log("found - deleting");
                 favoritesButton.current = true
                 dispatch(changeFavorites({ location, weather }))
                 return
             }
             if (index + 1 === favorites.length) {
-                // console.log("not found - adding");
                 favoritesButton.current = false
                 dispatch(changeFavorites({ location, weather }))
                 return

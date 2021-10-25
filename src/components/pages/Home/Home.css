@@ -1,25 +1,19 @@
 #home {
     position: relative;
-    /* border: solid black 5px; */
-    min-height: 65vh;
+    min-height: 81vh;
     background-color: rgb(240, 240, 240);
 }
 
 #content{
-    z-index: 1;
-    /* border: solid black 3px; */
     margin: 10px 30px;
-    /* min-height:max-content ; */
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(248, 248, 248);
-    /* color: white; */
 }
 
 #top {
-    /* border: solid green 3px; */
     display: flex;
     justify-content: space-between;
     margin: 20px;
@@ -27,7 +21,6 @@
 
 #left{
     display: flex;
-    /* flex-direction: row; */
     width: 350px;
 }
 
@@ -39,8 +32,6 @@
 }
 
 #bottom{
-    /* min-height: 30vh; */
-    /* border: solid 3px purple; */
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -49,14 +40,11 @@
 
 #headline{
     font-size: 50px;
-    /* height: 80px; */
 }
 
 #forecast{
-    /* border: solid blue 3px; */
     display: flex;
     justify-content: space-around;
-    /* height: 200px; */
 }
 
 .forecast-day{
