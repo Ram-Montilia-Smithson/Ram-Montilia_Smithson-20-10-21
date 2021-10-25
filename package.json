@@ -1,7 +1,7 @@
 {
   "name": "ram-montilia_smithson-20-10-21",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "bootstrap": "^5.1.3",
     "netlify-cli": "^6.14.0",

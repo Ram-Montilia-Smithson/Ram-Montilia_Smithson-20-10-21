@@ -120,7 +120,7 @@ function Home({ home, searchRef, contentRef, app }) {
                         </div>
                         :
                         <>
-                            <h1>Error!</h1>
+                            <h1>Error</h1>
                             <h2>The Weather service Is Not Working At The Moment</h2>
                             <h3>Please Try Again Later</h3>
                         </>

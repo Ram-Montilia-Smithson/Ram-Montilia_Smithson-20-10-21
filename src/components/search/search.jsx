@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Button from 'react-bootstrap/Button';
-// import Dropdown from "react-bootstrap/Dropdown"
+import Modal from "react-bootstrap/Modal"
 import "./search.css"
 import { getAutoCompleteSearch, getCurrentConditions, getForecast, getGeoposition } from '../../forecast/accuweatherFunctions';
 import { changeForecast, changeLocation, changeSearch, changeSearchResponse, changeWeather } from '../../state management/actions';
@@ -10,22 +10,37 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function Search({ searchRef }) {
 
+    const [show, setShow] = useState(false);
+
     const dispatch = useDispatch()
+
     const search = useSelector(state => state.search)
     const searchResponse = useSelector(state => state.searchResponse)
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const success = async (position) => {
-        try{
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
         // console.log(location);
+        if (typeof location === "string") {
+            handleShow()
+            return
+        }
         const weather = await getCurrentConditions(location.Key)
+        if (typeof weather === "string") {
+            handleShow()
+            return
+        }
         const forecast = await getForecast(location.Key)
+        if (typeof forecast === "string") {
+            handleShow()
+            return
+        }
         dispatch(changeWeather(weather))
         dispatch(changeForecast(forecast))
-            dispatch(changeLocation({ name: location.LocalizedName, key: location.Key, img: "geoPosition" }))
-        } catch (err) {
-            alert(err)
-        }
+        dispatch(changeLocation({ name: location.LocalizedName, Key: location.Key, img: "geoPosition" }))
+
     }
 
     const error = (error) => {
@@ -40,13 +55,25 @@ function Search({ searchRef }) {
     const autoComplete = async (searchText) => {
         dispatch(changeSearch(searchText))
         const autoCompleteSearchArray = await getAutoCompleteSearch(searchText);
+        if (typeof autoCompleteSearchArray === "string") {
+            handleShow()
+            return
+        }
         dispatch(changeSearchResponse(autoCompleteSearchArray))
     }
 
     const getWeather = async (location) => {
         // console.log(location);
         const weather = await getCurrentConditions(location.Key)
-        const forecast = await getForecast(location.key)
+        if (typeof weather === "string") {
+            handleShow()
+            return
+        }
+        const forecast = await getForecast(location.Key)
+        if (typeof forecast === "string") {
+            handleShow()
+            return
+        }
         dispatch(changeWeather(weather))
         dispatch(changeSearch(""))
         dispatch(changeLocation(location))
@@ -81,7 +108,7 @@ function Search({ searchRef }) {
                 {searchResponse.map(location => {
                     return (
                         <span
-                            key={location.key}
+                            key={location.Key}
                             className="dropdown-item"
                             onClick={() => getWeather(location)}
                         >
@@ -90,6 +117,19 @@ function Search({ searchRef }) {
                     )
                 })}
             </div>}
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Error</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    The Weather service Is Not Working At The Moment
+                </Modal.Body>
+                <Modal.Body>
+                    Please Try Again Later
+                </Modal.Body>
+            </Modal>
+
         </div>
     )
 }

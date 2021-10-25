@@ -2,16 +2,19 @@ import './App.css';
 import Button from 'react-bootstrap/Button';
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
+import Modal from "react-bootstrap/Modal"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from '../pages/Home/Home';
 import Favorites from '../pages/favorites/favorites';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getCurrentConditions, getForecast } from '../../forecast/accuweatherFunctions';
 import { changeForecast, changeLocation, changeWeather } from '../../state management/actions';
 import logo from "../../icons/rainy-day.png"
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 function App() {
+
+  const [show, setShow] = useState(false);
 
   const dispatch = useDispatch()
 
@@ -22,18 +25,29 @@ function App() {
   const creditsRef = useRef()
   const headlineRef = useRef()
   const contentRef = useRef()
-  
+
   useEffect(() => {
     (async () => {
-      const telAviv = { key: "215854", name: "Tel Aviv", img: "Tel Aviv" }
-      const weather = await getCurrentConditions(telAviv.key)
-      const forecast = await getForecast(telAviv.key)
+      const telAviv = { Key: "215854", name: "Tel Aviv", img: "Tel Aviv" }
+      const weather = await getCurrentConditions(telAviv.Key)
+      if (typeof weather === "string") {
+        handleShow()
+        return
+      }
+      const forecast = await getForecast(telAviv.Key)
+      if (typeof forecast === "string") {
+        handleShow()
+        return
+      }
       dispatch(changeWeather(weather))
       dispatch(changeLocation(telAviv))
       dispatch(changeForecast(forecast))
     })()
   }, [dispatch])
-    
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const toggleMode = () => {
     app.current.classList.toggle("lightMode");
     home.current.classList.toggle("lightMode");
@@ -43,7 +57,7 @@ function App() {
     headlineRef.current.classList.toggle("darkMode");
     contentRef.current.classList.toggle("contentMode");
   }
-  
+
 
   return (
     <div ref={app} className="App">
@@ -60,23 +74,35 @@ function App() {
             <h1 ref={headlineRef} id="navbar-headline">Herolo Weather Task</h1>
           </Navbar.Brand>
           <span id="toggles">
-            <Button variant="secondary" ><sup>o </sup>C/F</Button>
             <Button onClick={() => toggleMode()} variant="secondary" >Dark/Light</Button>
           </span>
           <Nav.Item id="links">
             <Link to="/"><Button variant="secondary">Home</Button></Link>
-            <Link to="/favorites"><Button  variant="secondary">Favorites</Button></Link>
+            <Link to="/favorites"><Button variant="secondary">Favorites</Button></Link>
           </Nav.Item>
         </Navbar>
         <Switch>
-          <Route path="/favorites"><Favorites home={home} searchRef={searchRef} contentRef={contentRef} app={app}/></Route>
-          <Route path="/"><Home home={home} searchRef={searchRef} contentRef={contentRef} app={app}/></Route>
+          <Route path="/favorites"><Favorites home={home} searchRef={searchRef} contentRef={contentRef} app={app} /></Route>
+          <Route path="/"><Home home={home} searchRef={searchRef} contentRef={contentRef} app={app} /></Route>
         </Switch>
       </Router>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Error</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          The Weather service Is Not Working At The Moment
+        </Modal.Body>
+        <Modal.Body>
+          Please Try Again Later
+        </Modal.Body>
+      </Modal>
+
       <div ref={creditsRef} className="bg-dark text-light" id="credits">
-        <div>Weather information provided by <a href="https://developer.accuweather.com/">AccuWeather</a></div>
         <div>
-          Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+          <div>Weather information provided by <a href="https://developer.accuweather.com/">AccuWeather</a></div>
+          <span>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></span>
           <span> and The Tel Aviv Architecture Icon by Eynav Raphael from <a href="https://thenounproject.com/"> The Noun Project</a></span>
         </div>
       </div>
