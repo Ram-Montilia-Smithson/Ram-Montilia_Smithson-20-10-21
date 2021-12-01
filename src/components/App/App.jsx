@@ -8,7 +8,7 @@ import Home from '../pages/Home/Home';
 import Favorites from '../pages/favorites/favorites';
 import { useEffect, useRef, useState } from 'react';
 import { getCurrentConditions, getForecast } from '../../weather/accuweatherFunctions';
-import { changeForecast, changeLocation, changeWeather } from '../../state management/actions';
+import { changeForecast, changeLocation, changeWeather } from '../../state-management/actions';
 import logo from "../../icons/rainy-day.png"
 import { useDispatch } from 'react-redux';
 
@@ -29,19 +29,23 @@ function App() {
   useEffect(() => {
     (async () => {
       const telAviv = { Key: "215854", name: "Tel Aviv", img: "Tel Aviv" }
-      const weather = await getCurrentConditions(telAviv.Key)
-      if (typeof weather === "string") {
-        handleShow()
-        return
-      }
-      const forecast = await getForecast(telAviv.Key)
-      if (typeof forecast === "string") {
-        handleShow()
-        return
-      }
-      dispatch(changeWeather(weather))
       dispatch(changeLocation(telAviv))
-      dispatch(changeForecast(forecast))
+      const weatherPromise = new Promise((resolve, reject) => {
+        resolve(getCurrentConditions(telAviv.Key))
+      })
+      const forecastPromise = new Promise((resolve, reject) => {
+        resolve(getForecast(telAviv.Key))
+      })
+      Promise.all([weatherPromise, forecastPromise]).then((values) => {
+        const weather = values[0]
+        const forecast = values[1]
+        if (typeof weather === "string" || typeof forecast === "string") {
+          handleShow()
+          return
+        }
+        dispatch(changeWeather(weather))
+        dispatch(changeForecast(forecast))
+      });
     })()
   }, [dispatch])
 
@@ -71,7 +75,7 @@ function App() {
               className="d-inline-block align-middle mb-2 mx-3"
               alt="React Bootstrap logo"
             />
-            <h1 ref={headlineRef} id="navbar-headline">Herolo Weather Task</h1>
+            <h1 ref={headlineRef} id="navbar-headline">Ram Montilia Smithson Weather App</h1>
           </Navbar.Brand>
           <span id="toggles">
             <Button onClick={() => toggleMode()} variant="secondary" >Dark/Light</Button>

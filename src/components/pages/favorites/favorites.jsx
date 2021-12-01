@@ -4,7 +4,7 @@ import { getCurrentConditions, getForecast } from '../../../weather/accuweatherF
 import "./favorites.css"
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
-import { changeForecast, changeLocation, changeWeather } from '../../../state management/actions';
+import { changeForecast, changeLocation, changeWeather } from '../../../state-management/actions';
 import { useHistory } from "react-router-dom";
 
 

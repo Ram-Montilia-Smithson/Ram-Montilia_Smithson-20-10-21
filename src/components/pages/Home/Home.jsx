@@ -9,7 +9,7 @@ import geoPosition from "../../../icons/geoPosition.png"
 import worldMap from "../../../icons/earth.png"
 import { useDispatch, useSelector } from 'react-redux';
 import Search from '../../search/search';
-import { changeFavorites } from '../../../state management/actions';
+import { changeFavorites } from '../../../state-management/actions';
 
 function Home({ home, searchRef, contentRef, app }) {
 
