@@ -96,7 +96,7 @@ function App() {
           <Modal.Title>Error</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          The Weather service Is Not Working At The Moment
+          The Weather Service Is Not Working At The Moment
         </Modal.Body>
         <Modal.Body>
           Please Try Again Later
