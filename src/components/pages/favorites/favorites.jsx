@@ -30,19 +30,23 @@ function Favorites({ home, searchRef, contentRef, app }) {
     const handleShow = () => setShow(true);
 
     const choosingFavorite = async (locationWeather) => {
-        const weather = await getCurrentConditions(locationWeather.location.Key)
-        const forecast = await getForecast(locationWeather.location.Key)
-        if (typeof weather === "string") {
-            handleShow()
-            return
-        }
-        if (typeof forecast === "string") {
-            handleShow()
-            return
-        }
-        dispatch(changeWeather(weather))
         dispatch(changeLocation(locationWeather.location))
-        dispatch(changeForecast(forecast))
+        const weatherPromise = new Promise((resolve, reject) => {
+            resolve(getCurrentConditions(locationWeather.location.Key))
+        })
+        const forecastPromise = new Promise((resolve, reject) => {
+            resolve(getForecast(locationWeather.location.Key))
+        })
+        Promise.all([weatherPromise, forecastPromise]).then((values) => {
+            const weather = values[0]
+            const forecast = values[1]
+            if (typeof weather === "string" || typeof forecast === "string") {
+                handleShow()
+                return
+            }
+            dispatch(changeWeather(weather))
+            dispatch(changeForecast(forecast))
+        });
         history.push("/");
     }
 

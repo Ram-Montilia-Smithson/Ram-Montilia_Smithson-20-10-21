@@ -21,24 +21,29 @@ function Search({ searchRef }) {
     const handleShow = () => setShow(true);
 
     const success = async (position) => {
+        
         const location = await getGeoposition(position.coords.latitude, position.coords.longitude)
         if (typeof location === "string") {
             handleShow()
             return
         }
-        const weather = await getCurrentConditions(location.Key)
-        if (typeof weather === "string") {
-            handleShow()
-            return
-        }
-        const forecast = await getForecast(location.Key)
-        if (typeof forecast === "string") {
-            handleShow()
-            return
-        }
-        dispatch(changeWeather(weather))
-        dispatch(changeForecast(forecast))
         dispatch(changeLocation({ name: location.LocalizedName, Key: location.Key, img: "geoPosition" }))
+        const weatherPromise = new Promise((resolve, reject) => {
+            resolve(getCurrentConditions(location.Key))
+        })
+        const forecastPromise = new Promise((resolve, reject) => {
+            resolve(getForecast(location.Key))
+        })
+        Promise.all([weatherPromise, forecastPromise]).then((values) => {
+            const weather = values[0]
+            const forecast = values[1]
+            if (typeof weather === "string" || typeof forecast === "string") {
+                handleShow()
+                return
+            }
+            dispatch(changeWeather(weather))
+            dispatch(changeForecast(forecast))
+        });
 
     }
 
@@ -61,20 +66,24 @@ function Search({ searchRef }) {
     }
 
     const getWeather = async (location) => {
-        const weather = await getCurrentConditions(location.Key)
-        if (typeof weather === "string") {
-            handleShow()
-            return
-        }
-        const forecast = await getForecast(location.Key)
-        if (typeof forecast === "string") {
-            handleShow()
-            return
-        }
-        dispatch(changeWeather(weather))
         dispatch(changeSearch(""))
         dispatch(changeLocation(location))
-        dispatch(changeForecast(forecast))
+        const weatherPromise = new Promise((resolve, reject) => {
+            resolve(getCurrentConditions(location.Key))
+        })
+        const forecastPromise = new Promise((resolve, reject) => {
+            resolve(getForecast(location.Key))
+        })
+        Promise.all([weatherPromise, forecastPromise]).then((values) => {
+            const weather = values[0]
+            const forecast = values[1]
+            if (typeof weather === "string" || typeof forecast === "string") {
+                handleShow()
+                return
+            }
+            dispatch(changeWeather(weather))
+            dispatch(changeForecast(forecast))
+        });
     }
 
     return (
